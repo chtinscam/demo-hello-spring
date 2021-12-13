@@ -4,8 +4,9 @@ pipeline {
 
   stages {
       stage('SCM Checkout'){
-       sh 'git clone https://github.com/chtinscam/demo-hello-spring.git'
-        }
+        agent { node {label 'Built-In Node'}}
+        sh 'git clone https://github.com/chtinscam/demo-hello-spring.git'
+      }
 //   stage('Mvn Package'){
 //      sh "mvn clean package"
 //   }
@@ -18,6 +19,7 @@ pipeline {
 //      sh 'sudo podman push docker.io/18521496/spring-hello:latest'
 //   }
     stage('Run'){
+        agent { node {label 'Built-In Node'}}
         sh 'sudo podman images'
        sh 'sudo podman run -dp 9000:8081 docker.io/18521496/spring-hello:latest'
     }
