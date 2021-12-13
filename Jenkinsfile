@@ -4,7 +4,7 @@ pipeline {
     stage('SCM Checkout'){
         agent any
             steps{
-                sh "git clone https://github.com/chtinscam/demo-hello-spring.git"
+                git "https://github.com/chtinscam/demo-hello-spring.git"
             }
         }
     stage('Mvn Package'){
