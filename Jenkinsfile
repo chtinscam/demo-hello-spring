@@ -4,7 +4,7 @@ pipeline {
 
   stages {
       stage('SCM Checkout'){
-       git clone 'https://github.com/chtinscam/demo-hello-spring.git'
+       sh 'git clone https://github.com/chtinscam/demo-hello-spring.git'
         }
 //   stage('Mvn Package'){
 //      sh "mvn clean package"
