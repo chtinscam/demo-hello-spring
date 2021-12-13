@@ -1,4 +1,5 @@
-node{
+pipeline{
+   agent none
    stage('SCM Checkout'){
        git 'https://github.com/chtinscam/demo-hello-spring.git'
    }
@@ -17,4 +18,5 @@ node{
         sh 'sudo podman images'
        sh 'sudo podman run -dp 9000:8081 docker.io/18521496/spring-hello:latest'
     }
+
 }
