@@ -4,7 +4,7 @@ pipeline {
 
   stages {
       stage('SCM Checkout'){
-        agent { node }
+        agent any
         steps{
         sh "git clone https://github.com/chtinscam/demo-hello-spring.git"
         }
