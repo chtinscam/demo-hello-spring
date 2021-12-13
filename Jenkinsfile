@@ -7,12 +7,12 @@ pipeline {
                 git "https://github.com/chtinscam/demo-hello-spring.git"
             }
         }
-    // stage('Mvn Package'){
-    //     agent any
-    //     steps{
-    //         sh "mvn clean package"
-    //     }
-    // }
+    stage('Mvn Package'){
+        agent any
+        steps{
+            sh "mvn clean package"
+        }
+    }
     // stage('Build Docker Image'){
     //     agent any
     //     steps{
