@@ -23,11 +23,7 @@ pipeline {
         agent any
             steps{
                 //sh 'sudo podman logout'
-                withCredentials([string(credentialsId: 'pwd_dockerHub1', variable: 'pwd_dockerHub1')]) {
-    // some block
-                    sh 'sudo podman login docker.io'
-}
-                
+                sh 'sudo podman login docker.io -u 18521496 -p Tcam12345'
                 sh 'sudo podman tag localhost/cam/spring-hello:latest docker.io/18521496/spring-hello:latest'
                 sh 'sudo podman push docker.io/18521496/spring-hello:latest'
             }
