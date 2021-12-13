@@ -21,11 +21,12 @@ pipeline {
     }
     stage('Push Docker Image'){
         agent any
-        steps{
-            sh 'sudo podman login docker.io -u 18521496 -p Tcam12345'
-            sh 'sudo podman tag localhost/cam/spring-hello:latest docker.io/18521496/spring-hello:latest'
-            sh 'sudo podman push docker.io/18521496/spring-hello:latest'
-        }
+            steps{
+                sh 'sudo podman logout'
+                sh 'sudo podman login docker.io -u 18521496 -p Tcam12345'
+                sh 'sudo podman tag localhost/cam/spring-hello:latest docker.io/18521496/spring-hello:latest'
+                sh 'sudo podman push docker.io/18521496/spring-hello:latest'
+            }
     }
     stage('Run'){
         agent any
