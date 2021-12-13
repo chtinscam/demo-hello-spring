@@ -1,7 +1,9 @@
-pipeline{
-   agent none
-   stages {
-   stage('SCM Checkout'){
+pipeline {
+
+  agent none 
+
+  stages {
+      stage('SCM Checkout'){
        git 'https://github.com/chtinscam/demo-hello-spring.git'
    }
 //   stage('Mvn Package'){
@@ -20,4 +22,5 @@ pipeline{
        sh 'sudo podman run -dp 9000:8081 docker.io/18521496/spring-hello:latest'
     }
    }
+  }
 }
