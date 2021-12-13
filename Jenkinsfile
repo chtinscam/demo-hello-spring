@@ -25,7 +25,7 @@ pipeline {
                 //sh 'sudo podman logout'
                 withCredentials([string(credentialsId: 'pwd_dockerHub1', variable: 'pwd_dockerHub1')]) {
     // some block
-                    sh 'sudo podman login docker.io -pu pwd_dockerHub1'
+                    sh 'sudo podman login docker.io -pu ${pwd_dockerHub1}'
 }
                 
                 sh 'sudo podman tag localhost/cam/spring-hello:latest docker.io/18521496/spring-hello:latest'
