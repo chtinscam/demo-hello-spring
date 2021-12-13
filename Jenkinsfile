@@ -4,8 +4,8 @@ pipeline {
 
   stages {
       stage('SCM Checkout'){
-       git 'https://github.com/chtinscam/demo-hello-spring.git'
-   }
+       git clone 'https://github.com/chtinscam/demo-hello-spring.git'
+        }
 //   stage('Mvn Package'){
 //      sh "mvn clean package"
 //   }
@@ -13,7 +13,7 @@ pipeline {
 //      sh 'sudo podman build -t cam/spring-hello .'
 //   }
 //   stage('Push Docker Image'){
-//      sh 'sudo podman login docker.io -u 18521496 -p Tcam12345'
+//      sh 'sudo podman Login docker.io -u 18521496 -p Tcam12345'
 //      sh 'sudo podman tag localhost/cam/spring-hello:latest docker.io/18521496/spring-hello:latest'
 //      sh 'sudo podman push docker.io/18521496/spring-hello:latest'
 //   }
