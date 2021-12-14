@@ -13,12 +13,12 @@ pipeline {
             sh "mvn clean package"
         }
     }
-    // stage('Build Docker Image'){
-    //     agent any
-    //     steps{
-    //         sh 'sudo podman build -t cam/spring-hello .'
-    //     }
-    // }
+    stage('Build Docker Image'){
+        agent any
+        steps{
+            sh 'sudo podman build -t cam/spring-hello .'
+        }
+    }
     stage('Push Docker Image'){
         agent any
             steps{
