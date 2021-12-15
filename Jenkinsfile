@@ -10,18 +10,18 @@ pipeline {
                 git "https://github.com/chtinscam/demo-hello-spring.git"
             }
         }
-    // stage('Mvn Package'){
-    //     //agent {label 'Jenkins_Slave'}
-    //     steps{
-    //         sh "mvn clean package"
-    //     }
-    // }
-    // stage('Build Docker Image'){
-    //    // agent {label 'Jenkins_Slave'}
-    //     steps{
-    //         sh 'sudo podman build -t cam/spring-hello .'
-    //     }
-    // }
+    stage('Mvn Package'){
+        //agent {label 'Jenkins_Slave'}
+        steps{
+            sh "mvn clean package"
+        }
+    }
+    stage('Build Docker Image'){
+       // agent {label 'Jenkins_Slave'}
+        steps{
+            sh 'sudo podman build -t cam/spring-hello .'
+        }
+    }
     stage('Push Docker Image'){
        // agent {label 'Jenkins_Slave'}
             steps{  
