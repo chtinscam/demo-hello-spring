@@ -1,9 +1,5 @@
 pipeline {
-  agent { 
-      node{
-            label 'Jenkins_Slave'
-        }
-  }
+  agent { label 'Jenkins_Slave'}
   stages {
     stage('SCM Checkout'){
         agent {label 'Jenkins_Slave'}
@@ -26,8 +22,11 @@ pipeline {
     stage('Push Docker Image'){
         agent {label 'Jenkins_Slave'}
             steps{  
-                //sh 'sudo podman logout docker.io'
-                sh 'sudo podman login docker.io -u 18521496 -p Tcam12345'
+                withCredentials([string(credentialsId: 'pwd_dockerHub1', variable: 'pwd_dockerHub1')]) {
+    // some block
+                    sh 'sudo podman login docker.io -u 18521496 -p ${pwd_dockerHub1}'
+}
+                
                 sh 'sudo podman tag localhost/cam/spring-hello:latest docker.io/18521496/spring-hello:latest'
                 sh 'sudo podman push docker.io/18521496/spring-hello:latest'
             }
