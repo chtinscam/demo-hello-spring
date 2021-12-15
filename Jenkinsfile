@@ -35,5 +35,5 @@ pipeline {
     //             sh "sudo podman run -dp 9000:8081 docker.io/18521496/spring-hello:latest"
     //         }
     //     }
-    // }
+    }
 }
