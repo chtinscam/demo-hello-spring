@@ -1,7 +1,7 @@
 pipeline {
   agent { label 'Jenkins_Slave'}
   stages {
-    stage('SCM Checkout'){
+    stage('Checkout'){
         //agent {label 'Jenkins_Slave'}
             steps{
                 git "https://github.com/chtinscam/demo-hello-spring.git"
